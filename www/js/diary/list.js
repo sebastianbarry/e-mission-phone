@@ -315,7 +315,7 @@ angular.module('emission.main.diary.list',['ui-leaflet',
         content: $translate.instant('list-tour-datepicker-button')
       },
       {
-        target: '.diary-entry',
+        target: '#diary-entry',
         content: $translate.instant('list-tour-diary-entry')
       },
       {
