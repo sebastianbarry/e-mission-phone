@@ -324,7 +324,7 @@ angular.module('emission.main.diary.infscrolllist',['ui-leaflet',
     // if we are showing places and the last place does not have a display_end_time, 
     // then we will use the display_start_time + 1 hour for display_end_time
     if (!$scope.data.displayTimelineEntries[$scope.data.displayTimelineEntries.length-1].display_end_time && $scope.showPlaces) {
-      $scope.data.displayTimelineEntries[$scope.data.displayTimelineEntries.length-1].display_end_time = moment($scope.data.displayTimelineEntries[$scope.data.displayTimelineEntries.length-1].enter_fmt_time).parseZone().add(1, 'hour').format("h:mm A");
+      $scope.data.displayTimelineEntries[$scope.data.displayTimelineEntries.length-1].display_end_time = moment($scope.data.displayTimelineEntries[$scope.data.displayTimelineEntries.length-1].enter_fmt_time).parseZone().endOf('day').format("h:mm A");
     }
   }
 
