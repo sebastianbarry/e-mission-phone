@@ -82,7 +82,7 @@ angular.module('emission.main.diary.infscrolllist',['ui-leaflet',
       const numButtons = entry.INPUTS?.length || 1;
       height = 272 + (54 * numButtons)
     } else if (entry.enter_ts) { // entry is a place
-      height = 106;
+      height = 188;
     }
     if (entry.additionsList) {
       height += 40 * entry.additionsList.length; // for each trip/place addition object, we need to increase the card height
