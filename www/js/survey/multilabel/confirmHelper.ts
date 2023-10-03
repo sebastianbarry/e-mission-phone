@@ -4,6 +4,7 @@ import { getAngularService } from "../../angular-react-helper";
 import { fetchUrlCached } from "../../commHelper";
 import i18next from "i18next";
 import { logDebug } from "../../plugin/logger";
+import { geti18nFileName } from "../../i18n-utils";
 
 type InputDetails<T extends string> = {
   [k in T]?: {
@@ -49,8 +50,8 @@ export async function getLabelOptions(appConfigParam?) {
     }
   } else {
     // backwards compat: if dynamic config doesn't have label_options, use the old way
-    const i18nUtils = getAngularService("i18nUtils");
-    const optionFileName = await i18nUtils.geti18nFileName("json/", "trip_confirm_options", ".json");
+    // const i18nUtils = getAngularService("i18nUtils");
+    const optionFileName = await geti18nFileName("json/", "trip_confirm_options", ".json");
     try {
       const optionJson = await fetch(optionFileName).then(r => r.json());
       labelOptions = optionJson as LabelOptions;

@@ -2,11 +2,11 @@
 
 import angular from 'angular';
 import QrCode from './components/QrCode';
+import { geti18nFileName } from '../js/i18n-utils';
 
 angular.module('emission.intro', ['emission.splash.startprefs',
                                   'emission.survey.enketo.demographics',
                                   'emission.appstatus.permissioncheck',
-                                  'emission.i18n.utils',
                                   'emission.config.dynamic',
                                   'emission.plugin.kvstore',
                                   'ionic-toast',
@@ -29,7 +29,7 @@ angular.module('emission.intro', ['emission.splash.startprefs',
 
 .controller('IntroCtrl', function($scope, $rootScope, $state, $window,
     $ionicPlatform, $ionicSlideBoxDelegate,
-    $ionicPopup, $ionicHistory, ionicToast, $timeout, CommHelper, StartPrefs, KVStore, SurveyLaunch, DynamicConfig, i18nUtils) {
+    $ionicPopup, $ionicHistory, ionicToast, $timeout, CommHelper, StartPrefs, KVStore, SurveyLaunch, DynamicConfig) {
 
   /*
    * Move all the state that is currently in the controller body into the init
@@ -37,10 +37,10 @@ angular.module('emission.intro', ['emission.splash.startprefs',
    */
   $scope.init = function() {
       var allIntroFiles = Promise.all([
-        i18nUtils.geti18nFileName("templates/", "intro/summary", ".html"),
-        i18nUtils.geti18nFileName("templates/", "intro/consent", ".html"),
-        i18nUtils.geti18nFileName("templates/", "intro/sensor_explanation", ".html"),
-        i18nUtils.geti18nFileName("templates/", "intro/survey", ".html")
+        geti18nFileName("templates/", "intro/summary", ".html"),
+        geti18nFileName("templates/", "intro/consent", ".html"),
+        geti18nFileName("templates/", "intro/sensor_explanation", ".html"),
+        geti18nFileName("templates/", "intro/survey", ".html")
       ]);
       allIntroFiles.then(function(allIntroFilePaths) {
         $scope.$apply(function() {

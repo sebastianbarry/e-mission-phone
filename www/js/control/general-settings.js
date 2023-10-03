@@ -4,7 +4,6 @@ import angular from 'angular';
 import ProfileSettings from './ProfileSettings';
 
 angular.module('emission.main.control',['emission.services',
-                                        'emission.i18n.utils',
                                         'emission.main.control.collection',
                                         'emission.main.control.sync',
                                         'emission.splash.localnotify',
@@ -18,7 +17,7 @@ angular.module('emission.main.control',['emission.services',
                                         ProfileSettings.module])
 
 .controller('ControlCtrl', function($scope, $ionicPlatform,
-               $state, $ionicPopover, i18nUtils,
+               $state, $ionicPopover,
                $ionicModal, $stateParams, Logger,
                KVStore, CalorieCal, ClientStats,
                StartPrefs, ControlHelper, EmailHelper, UploadHelper,
